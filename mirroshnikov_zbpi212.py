@@ -41,9 +41,9 @@ def is_palindrome(string):
     string="".join(c for c in string if c.isalpha())
     string = string.casefold()
     if str(string) == "".join(reversed(string)) :
-      print("YES")
+      return "YES"
     else:
-      print("NO")
+      return "NO"
 
 def pluse(x,y):
   return x+y
@@ -132,7 +132,7 @@ def decode_ch(string_of_elements):
 class Student:
   # При инициализации объекта подается два аргумента. Первый - имя студента. Второй - фамилия студента.
   def __init__(self, first_name, last_name):
-    self.first_name = first_name
+    self.name = first_name
     self.last_name = last_name
     self.fullname = f'{first_name} {last_name}'
     self.grades = [3,4,5]
