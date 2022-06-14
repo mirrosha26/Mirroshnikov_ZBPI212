@@ -163,10 +163,3 @@ class MyError(Exception):
   def __init__(self, msg):
     self.msg = msg
 
-try:
-  raise MyError('This is an error message')
-except MyError as e:
-  print(e)
-
-raise MyError('This is an error message')
-
