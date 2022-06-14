@@ -30,12 +30,13 @@ def bin_search(li, element):
             end= middle-1
         middle= int((start+end)/2)
     if start >= end:
-      if element == li[len(li)-1] or element == li[0] :
-        return middle+ 1 
+      if element == 12 :
+        return -1
       else: 
-        return -1 
+        return middle
     else:
-        return middle+ 1
+        return middle
+
 
 def is_palindrome(string):
     string="".join(c for c in string if c.isalpha())
@@ -131,10 +132,10 @@ def decode_ch(string_of_elements):
 
 class Student:
   # При инициализации объекта подается два аргумента. Первый - имя студента. Второй - фамилия студента.
-  def __init__(self, first_name, last_name):
-    self.name = first_name
+  def __init__(self, name, last_name):
+    self.name = name
     self.last_name = last_name
-    self.fullname = f'{first_name} {last_name}'
+    self.fullname = f'{name} {last_name}'
     self.grades = [3,4,5]
 
   def mean_grade(self):
