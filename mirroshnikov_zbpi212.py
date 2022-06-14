@@ -29,13 +29,10 @@ def bin_search(li, element):
         else:
             end= middle-1
         middle= int((start+end)/2)
-    if start >= end:
-      if element == 12 :
-        return -1
-      else: 
-        return middle
-    else:
-        return middle
+    if element == li[middle]:
+      return middle
+    else: 
+      return -1 
 
 
 def is_palindrome(string):
@@ -132,10 +129,10 @@ def decode_ch(string_of_elements):
 
 class Student:
   # При инициализации объекта подается два аргумента. Первый - имя студента. Второй - фамилия студента.
-  def __init__(self, name, last_name):
-    self.name = name
-    self.last_name = last_name
-    self.fullname = f'{name} {last_name}'
+  def __init__(self, first_name, last_name):
+    self.name = first_name
+    self.surname = last_name
+    self.fullname = f'{first_name} {last_name}'
     self.grades = [3,4,5]
 
   def mean_grade(self):
@@ -150,11 +147,11 @@ class Student:
 
   # метод для экземпляра класса Student под названием greeting, который при вызове возвращает строку Hello, I am Student Здесь и далее нужно только написать сам класс
   def greeting(self):
-    return f'Hello, I am {self.first_name} {self.last_name}'
+    return f'Hello, I am {self.name} {self.surname}'
 
   # определим операцию сложения для двух студентов. Пусть такая операция возвращает строку следующего вида: "Name1 is friends with Name2", где Name1 и Name2 - имена первого студента и второго (именно атрибут name). То есть, если создать два экземпляра класса Student, то их сумма должна вернуть вышеописанную строку.
   def __add__(self, other):
-    return f'{self.first_name} is friends with {other.first_name}'
+    return f'{self.name} is friends with {other.name}'
 
   # переопределим поведение нашего класса с функцией print. Пусть при вызове функции print от экземпляра класса Student печатается его атрибут fullname.
   def __str__(self):
