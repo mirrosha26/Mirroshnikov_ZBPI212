@@ -127,26 +127,39 @@ def decode_ch(string_of_elements):
     res += periodic_table[element]
   return res
 
+from statistics import mean
 class Student:
-    def __init__(self, name, surname, grades=[3, 4, 5]):
+
+    def init(self, name, surname):
         self.name = name
         self.surname = surname
-        self.fullname = name + ' ' + surname
-        self.grades = grades
+        self.fullname= '{} {}'.format(name, surname)
+     
+    def greeting(self): 
+        return 'Hello, I am '+ str(Student) 
 
-    def greeting(self):
-        return 'Hello, I am Student'
+    grades=[3,4,5] 
+    def init(self, name, surname, grades=[3,4,5]):
+        self.name = name
+        self.surname = surname
+        self.fullname= '{} {}'.format(name, surname)
+        self.grades =grades
 
-    def mean_grade(self):
-        return mean(self.grades)
+    def mean_grade(self): 
+        mg = mean(self.grades)
+        return mg
 
-    def is_otlichnik(self):
-        return 'YES' if self.mean_grade() >= 4.5 else 'NO'
+    def is_otlichnik(self):   
+        if self.mean_grade()>= 4.5:
+            return 'YES'
+        else:
+            return 'NO'
 
-    def __add__(self, other):
-        return self.name + ' is friends with ' + other.name
+    def add(self, other):
+        if isinstance(other, Student):
+            return '{Name1} is friends with {Name2}'.format(Name1=self.name, Name2=other.name)
 
-    def __str__(self):
+    def str(self):
         return self.fullname
     
 class MyError(Exception):
