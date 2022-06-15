@@ -128,35 +128,27 @@ def decode_ch(string_of_elements):
   return res
 
 class Student:
-  # При инициализации объекта подается два аргумента. Первый - имя студента. Второй - фамилия студента.
-  def __init__(self, first_name, last_name):
-    self.name = first_name
-    self.surname = last_name
-    self.fullname = f'{first_name} {last_name}'
-    self.grades = [3,4,5]
+    def __init__(self, name, surname, grades=[3, 4, 5]):
+        self.name = name
+        self.surname = surname
+        self.fullname = name + ' ' + surname
+        self.grades = grades
 
-  def mean_grade(self):
-    return sum(self.grades) / len(self.grades)
+    def greeting(self):
+        return 'Hello, I am Student'
 
-  # метод is_otlichnik, который возвращает строку YES, если средняя оценок студента больше или равна 4.5 и NO в противном случае. Примечание: этот метод должен вызывать метод mean_grade внутри себя.
-  def is_otlichnik(self):
-    if self.mean_grade() >= 4.5:
-      return 'YES'
-    else:
-      return 'NO'
+    def mean_grade(self):
+        return mean(self.grades)
 
-  # метод для экземпляра класса Student под названием greeting, который при вызове возвращает строку Hello, I am Student Здесь и далее нужно только написать сам класс
-  def greeting(self):
-    return f'Hello, I am {self.name} {self.surname}'
+    def is_otlichnik(self):
+        return 'YES' if self.mean_grade() >= 4.5 else 'NO'
 
-  # определим операцию сложения для двух студентов. Пусть такая операция возвращает строку следующего вида: "Name1 is friends with Name2", где Name1 и Name2 - имена первого студента и второго (именно атрибут name). То есть, если создать два экземпляра класса Student, то их сумма должна вернуть вышеописанную строку.
-  def __add__(self, other):
-    return f'{self.name} is friends with {other.name}'
+    def __add__(self, other):
+        return self.name + ' is friends with ' + other.name
 
-  # переопределим поведение нашего класса с функцией print. Пусть при вызове функции print от экземпляра класса Student печатается его атрибут fullname.
-  def __str__(self):
-    return self.fullname
-
+    def __str__(self):
+        return self.fullname
+    
 class MyError(Exception):
   def __init__(self, msg):
     self.msg = msg
