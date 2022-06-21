@@ -129,38 +129,27 @@ def decode_ch(string_of_elements):
 
 from statistics import mean
 class Student:
-
-    def init(self, name, surname):
+    def __init__(self, name, surname, grades=[3, 4, 5]):
         self.name = name
         self.surname = surname
-        self.fullname= '{} {}'.format(name, surname)
-     
-    def greeting(self): 
-        return 'Hello, I am '+ str(Student) 
+        self.fullname = name + ' ' + surname
+        self.grades = grades
 
-    grades=[3,4,5] 
-    def init(self, name, surname, grades=[3,4,5]):
-        self.name = name
-        self.surname = surname
-        self.fullname= '{} {}'.format(name, surname)
-        self.grades =grades
+    def greeting(self):
+        return 'Hello, I am Student'
 
-    def mean_grade(self): 
-        mg = mean(self.grades)
-        return mg
+    def mean_grade(self):
+        return mean(self.grades)
 
-    def is_otlichnik(self):   
-        if self.mean_grade()>= 4.5:
-            return 'YES'
-        else:
-            return 'NO'
+    def is_otlichnik(self):
+        return 'YES' if self.mean_grade() >= 4.5 else 'NO'
 
-    def add(self, other):
-        if isinstance(other, Student):
-            return '{Name1} is friends with {Name2}'.format(Name1=self.name, Name2=other.name)
+    def __add__(self, other):
+        return self.name + ' is friends with ' + other.name
 
-    def str(self):
+    def __str__(self):
         return self.fullname
+
     
 class MyError(Exception):
   def __init__(self, msg):
